@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 20% 8%;
+    --foreground: 270 10% 95%;
+
+    --card: 260 18% 11%;
+    --card-foreground: 270 10% 95%;
+
+    --popover: 260 18% 11%;
+    --popover-foreground: 270 10% 95%;
+
+    --primary: 270 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 15% 16%;
+    --secondary-foreground: 270 10% 85%;
+
+    --muted: 260 12% 18%;
+    --muted-foreground: 260 10% 55%;
+
+    --accent: 280 40% 35%;
+    --accent-foreground: 270 10% 95%;
+
+    --destructive: 15 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 40 90% 55%;
+    --warning-foreground: 0 0% 10%;
+
+    --border: 260 15% 15%;
+    --input: 260 15% 15%;
+    --ring: 270 80% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 260 20% 7%;
+    --sidebar-foreground: 260 10% 55%;
+    --sidebar-primary: 270 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 15% 12%;
+    --sidebar-accent-foreground: 270 10% 95%;
+    --sidebar-border: 260 15% 12%;
+    --sidebar-ring: 270 80% 60%;
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'Geist Mono', 'SF Mono', monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+    font-feature-settings: 'tnum';
+  }
+}
+
+@layer base {
+  select {
+    accent-color: hsl(var(--accent));
+  }
+
+  select option:checked {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(270 80% 60% / 0.3);
+  }
+  .glow-dot {
+    box-shadow: 0 0 8px hsl(270 80% 60% / 0.8);
+  }
+  .glow-success {
+    box-shadow: 0 0 8px hsl(145 60% 45% / 0.8);
+  }
+  .glow-destructive {
+    box-shadow: 0 0 8px hsl(15 80% 55% / 0.8);
+  }
+  .glow-warning {
+    box-shadow: 0 0 8px hsl(40 90% 55% / 0.8);
+  }
+  .surface-glass {
+    background: linear-gradient(to bottom, hsl(0 0% 100% / 0.04), transparent);
+    border-top: 1px solid hsl(0 0% 100% / 0.08);
+  }
+  .label-text {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+}
